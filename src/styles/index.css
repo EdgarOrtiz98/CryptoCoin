@@ -28,6 +28,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #0a0f1c;
+  font-family: Kraken-Product, IBM Plex Sans, Helvetica, Arial, sans-serif;
 }
 
 h1 {

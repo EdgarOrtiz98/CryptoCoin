@@ -1,25 +1,115 @@
-.crypto-list {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
+.crypto-table-container {
+  width: 100%;
   margin: 0 auto;
+  padding: 1rem;
+  color: #e0e1dd;
+  overflow-x: auto;
 }
 
-.crypto-item {
+.crypto-table-container h2 {
+  color: #00ff88;
+  text-align: left;
+}
+
+.Description-app {
+  text-align: right;
+  margin: -3rem 2rem 1rem 0;
+}
+
+.crypto-table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  background-color: #0d1b2a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.crypto-table thead {
+  background-color: #1b263b;
+}
+
+.crypto-table thead th{
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+.crypto-table-body{
+  margin: 0 5rem;
+}
+
+.crypto-table tbody {
+  font-weight: bold;
+}
+
+.crypto-table th, .crypto-table td {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.crypto-table th {
+  color: #e0e1dd;
+  font-weight: 600;
+}
+
+.crypto-table tbody tr {
+  transition: background-color 0.3s;
+}
+
+.crypto-table tbody tr:hover {
+  background-color: #1e3a5f61;
+}
+
+.crypto-info {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.5rem;
-  border-bottom: 1px solid #eee;
+  gap: 0.8rem;
 }
 
-.crypto-item img {
-  margin-right: 10px;
+.crypto-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.crypto-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.crypto-symbol {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
 .positive {
-  color: green;
+  color: #00ff88;
+  font-weight: bold;
 }
 
 .negative {
-  color: red;
+  color: #ff6b6b;
+  font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .crypto-table-container {
+    padding: 0.5rem;
+  }
+
+  .crypto-table th, .crypto-table td {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .crypto-table-container h2 {
+    font-size: 1.2rem;
+  }
+
+  .crypto-logo {
+    width: 24px;
+    height: 24px;
+  }
+}
+

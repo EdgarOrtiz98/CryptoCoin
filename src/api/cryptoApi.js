@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://api.coingecko.com/api/v3/coins/markets";
 
-export const fetchCryptoData = async (vs_currency = "usd", per_page = 20) => {
+export const fetchCryptoData = async (vs_currency = "usd", per_page = 800) => {
   try {
     const response = await axios.get(API_URL, {
       params: {

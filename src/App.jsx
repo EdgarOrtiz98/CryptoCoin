@@ -1,11 +1,11 @@
-import './App.css'
+import './styles/App.css';
 import CryptoList from "./components/CryptoList";
 
 function App() {
   return (
     <>
-    <div>
-      <h1>CryptoCoin Explorer</h1>
+    <div className="Container-App">
+      <h1 className='Title-app'>CryptoCoin Explorer</h1>
       <CryptoList />
     </div>
     </>
