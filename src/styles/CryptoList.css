@@ -6,16 +6,6 @@
   overflow-x: auto;
 }
 
-.crypto-table-container h2 {
-  color: #00ff88;
-  text-align: left;
-}
-
-.Description-app {
-  text-align: right;
-  margin: -3rem 2rem 1rem 0;
-}
-
 .crypto-table {
   width: 100%;
   min-width: 1000px;

@@ -18,10 +18,6 @@ const CryptoList = () => {
 
   return (
     <div className="crypto-table-container">
-      <h2>Todas las criptomonedas</h2>
-      <p className='Description-app'>Desarrollada por
-        <a href=""> Edgar Ortiz</a>
-      </p>
       <table className="crypto-table">
         <thead>
           <tr>
@@ -45,7 +41,7 @@ const CryptoList = () => {
               <td className={crypto.price_change_percentage_24h >= 0 ? "positive" : "negative"}>
                 {crypto.price_change_percentage_24h.toFixed(2)} %
               </td>
-              <td>${crypto.market_cap.toLocaleString()}</td>
+              <td>$ {crypto.market_cap.toLocaleString()}</td>
             </tr>
           ))}
         </tbody>
