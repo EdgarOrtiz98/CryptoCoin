@@ -103,3 +103,8 @@
   }
 }
 
+.no-results {
+  text-align: center;
+  padding: 20px;
+  color: #afaaaa;
+}
