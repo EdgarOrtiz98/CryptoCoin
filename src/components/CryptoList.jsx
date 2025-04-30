@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import { fetchCryptoData } from "../api/cryptoApi";
 import "../styles/CryptoList.css";
 
-const CryptoList = ({ searchTerm }) => {
+const CryptoList = ({ searchTerm, currency }) => {
   const [cryptos, setCryptos] = useState([]);
   const [filteredCryptos, setFilteredCryptos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchCryptoData("usd");
+      const data = await fetchCryptoData(currency); // Usamos la moneda seleccionada
       setCryptos(data);
       setFilteredCryptos(data);
       setLoading(false);
     };
     loadData();
-  }, []);
+  }, [currency]); // Se ejecuta cuando cambia la moneda
 
   useEffect(() => {
     if (searchTerm.trim() === "") {
@@ -32,15 +32,30 @@ const CryptoList = ({ searchTerm }) => {
 
   if (loading) return <div>Cargando criptomonedas...</div>;
 
+  const getCurrencySymbol = () => {
+    switch (currency) {
+      case "usd":
+        return "$";
+      case "mxn":
+        return "$";
+      case "eur":
+        return "€";
+      case "gbp":
+        return "£";
+      default:
+        return "$";
+    }
+  };
+
   return (
     <div className="crypto-table-container">
       <table className="crypto-table">
         <thead>
           <tr>
             <th>Activo</th>
-            <th>Precio </th>
+            <th>Precio ({currency.toUpperCase()})</th>
             <th>Cambio (24h)</th>
-            <th>Capitalización</th>
+            <th>Capitalización ({currency.toUpperCase()})</th>
           </tr>
         </thead>
         <tbody className="crypto-table-body">
@@ -48,17 +63,37 @@ const CryptoList = ({ searchTerm }) => {
             filteredCryptos.map((crypto) => (
               <tr key={crypto.id}>
                 <td className="crypto-info">
-                  <img src={crypto.image} alt={crypto.name} className="crypto-logo" />
+                  <img
+                    src={crypto.image}
+                    alt={crypto.name}
+                    className="crypto-logo"
+                  />
                   <div>
                     <div className="crypto-name">{crypto.name}</div>
-                    <div className="crypto-symbol">{crypto.symbol.toUpperCase()}</div>
+                    <div className="crypto-symbol">
+                      {crypto.symbol.toUpperCase()}
+                    </div>
                   </div>
                 </td>
-                <td>$ {crypto.current_price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 6 })}</td>
-                <td className={crypto.price_change_percentage_24h >= 0 ? "positive" : "negative"}>
+                <td>
+                  {getCurrencySymbol()}{" "}
+                  {crypto.current_price.toLocaleString("en-US", {
+                    maximumFractionDigits: currency === "jpy" ? 0 : 6,
+                  })}
+                </td>
+                <td
+                  className={
+                    crypto.price_change_percentage_24h >= 0
+                      ? "positive"
+                      : "negative"
+                  }
+                >
                   {crypto.price_change_percentage_24h.toFixed(2)} %
                 </td>
-                <td>$ {crypto.market_cap.toLocaleString()}</td>
+                <td>
+                  {getCurrencySymbol()}{" "}
+                  {crypto.market_cap.toLocaleString("en-US")}
+                </td>
               </tr>
             ))
           ) : (

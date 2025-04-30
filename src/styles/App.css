@@ -5,16 +5,9 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
+.Logo-app {
+  height: 3em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
@@ -33,12 +26,10 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.header-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Container-App {
@@ -49,14 +40,14 @@
   gap: 1rem;
 }
 
-.header-app {
+.body-app {
   padding: 0 1.5rem;
   margin: 5rem 0 0 0;
   width: 1000px;
   margin: 0 auto;
 }
 
-.header-app h2 {
+.body-app h2 {
   color: #00ff88;
   text-align: left;
 }
